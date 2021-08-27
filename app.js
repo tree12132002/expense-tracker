@@ -1,5 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const Expense = require('./models/expense')
 
 const app = express()
 
@@ -19,7 +20,10 @@ db.once('open', () => {
 
 // route
 app.get('/', (req, res) => {
-  res.render('index')
+  Expense.find()
+    .lean()
+    .then(expenses => res.render('index', { expenses }))
+    .catch(error => console.error(error))
 })
 
 app.listen(3000, () => {
