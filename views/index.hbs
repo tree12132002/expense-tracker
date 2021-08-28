@@ -13,30 +13,41 @@
   </form>
 </div>
 
+<div>
+  <h2>總金額：</h2>
+</div>
 
 
 <ul class="list-group">
   {{#each expenses }}
-  <li class="list-group-item">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
     <div class="row">
-      <div>
+      <div class="col">
         <i class="{{this.icon}}"></i>
       </div>
+      <div class="col">
+        {{this.name}}
+        <small>{{this.date}}</small>
+      </div>
+      <div class="col">
+        {{this.amount}}
+      </div>
+      <div class="col">
+        {{this.category}}
+      </div>
       <div>
-        <div>
-          {{this.name}}
-        </div>
-        <div>
-          {{this.date}}
-        </div>
-        <div>
-          {{this.amount}}
-        </div>
-        <div>
-          {{this.category}}
-        </div>
+        <a href="">修改</a>
+      </div>
+      <div>
+        <form action="">
+          <button>刪除</button>
+        </form>
       </div>
     </div>
   </li>
   {{/each}}
 </ul>
+
+<div>
+  <a class="btn btn-primary justify-content-center d-flex" href="">新增支出</a>
+</div>
