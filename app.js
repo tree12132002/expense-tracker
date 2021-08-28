@@ -1,11 +1,14 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const Expense = require('./models/expense')
+const bodyParser = require('body-parser')
 
 const app = express()
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs'}))
 app.set('view engine', 'hbs')
+
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // mongoose
 const mongoose = require('mongoose')
@@ -23,6 +26,18 @@ app.get('/', (req, res) => {
   Expense.find()
     .lean()
     .then(expenses => res.render('index', { expenses }))
+    .catch(error => console.error(error))
+})
+
+// create new record
+app.get('/expenses/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/expenses', (req, res) => {
+  const { name, date, category, amount } = req.body
+  return Expense.create({ name, date, category, amount })
+    .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })
 

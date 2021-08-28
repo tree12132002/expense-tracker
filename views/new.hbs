@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex">
+      <small>*必填欄位</small>
+      <h2 class="mx-auto">請輸入你的支出</h2>
+    </div>
+    <form action="/expenses" method="POST">
+      <div class="input-group flex-nowrap">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">名稱*</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="name" aria-describedby="addon-wrapping"
+          name="name" required>
+      </div>
+
+      <div class="input-group flex-nowrap">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">日期*</span>
+        </div>
+        <input type="date" class="form-control" placeholder="" aria-label="date" aria-describedby="addon-wrapping"
+          name="date" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">類別*</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" name="category" required>
+          <option selected>Select</option>
+          <option value="餐飲食品">餐飲食品</option>
+          <option value="交通出行">交通出行</option>
+          <option value="休閒娛樂">休閒娛樂</option>
+          <option value="家居物業">家居物業</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+
+      <div class="input-group flex-nowrap">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">金額*</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="amount" aria-describedby="addon-wrapping"
+          name="amount" required>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" type="submit">新增支出</button>
+      </div>
+    </form>
+
+  </div>
+</div>
