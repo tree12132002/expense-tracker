@@ -44,7 +44,6 @@ app.post('/expenses', (req, res) => {
 // edit record
 app.get('/expenses/:id/edit', (req, res) => {
   const id = req.params.id
-  console.log(id)
   return Expense.findById(id)
     .lean()
     .then((expense) => res.render('edit', { expense }))
@@ -62,6 +61,15 @@ app.post('/expenses/:id/edit', (req, res) => {
       expense.amount = amount
       return expense.save()
     })
+    .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
+})
+
+// delete record
+app.post('/expenses/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Expense.findById(id)
+    .then(expense => expense.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })

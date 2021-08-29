@@ -39,8 +39,8 @@
         <a href="./expenses/{{ this._id }}/edit">修改</a>
       </div>
       <div>
-        <form action="">
-          <button>刪除</button>
+        <form action="./expenses/{{ this._id }}/delete" method="POST" style="display: inline;">
+          <button class="btn btn-secondary" type="submit">刪除</button>
         </form>
       </div>
     </div>
