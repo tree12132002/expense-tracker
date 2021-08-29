@@ -1,5 +1,5 @@
 const CATEGORY = {
-  home: 'fas fa- home',
+  home: 'fas fa-home',
   transportation: 'fas fa-shuttle-van',
   entertainment: 'fas fa-grin-beam',
   food: 'fas fa-utensils',
