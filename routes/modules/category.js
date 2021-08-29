@@ -7,7 +7,6 @@ const moment = require('moment')
 // choose category
 router.get('/', (req, res) => {
   const getCategory = req.query.category
-  console.log(getCategory)
   let category = { category: req.query.category }
 
   if (getCategory === '全部') {
