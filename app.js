@@ -2,16 +2,19 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const Expense = require('./models/expense')
 const bodyParser = require('body-parser')
+const CATEGORY = require('./models/CATEGORY')
+const moment = require('moment')
 
 const app = express()
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 
 // mongoose
 const mongoose = require('mongoose')
+const expense = require('./models/expense')
 mongoose.connect('mongodb://localhost/Expense', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', () => {
@@ -25,7 +28,31 @@ db.once('open', () => {
 app.get('/', (req, res) => {
   Expense.find()
     .lean()
-    .then(expenses => res.render('index', { expenses }))
+    .then(expenses => {
+      let totalAmount = 0
+      expenses.forEach((item) => {
+        switch (item.category) {
+          case '家居物業':
+            item['icon'] = CATEGORY.home
+            break
+          case '交通出行':
+            item['icon'] = CATEGORY.transportation
+            break
+          case '休閒娛樂':
+            item['icon'] = CATEGORY.entertainment
+            break
+          case '餐飲食品':
+            item['icon'] = CATEGORY.food
+            break
+          case '其他':
+            item['icon'] = CATEGORY.other
+            break
+        }
+        item.date = moment(item.date).format('YYYY-MM-DD')
+        totalAmount += item['amount']
+      })
+      res.render('index', { expenses, totalAmount })
+    })
     .catch(error => console.error(error))
 })
 
@@ -71,6 +98,45 @@ app.post('/expenses/:id/delete', (req, res) => {
   return Expense.findById(id)
     .then(expense => expense.remove())
     .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
+})
+
+// choose category
+app.get('/expenses/:category', (req, res) => {
+  const getCategory = req.query.category
+  console.log(getCategory)
+  let category = { category: req.query.category }
+
+  if (getCategory === '全部') {
+    category = {}
+  }
+  return Expense.find(category)
+    .lean()
+    .then(expenses => {
+      let totalAmount = 0
+      expenses.forEach((item) => {
+        switch (item.category) {
+          case '家居物業':
+            item['icon'] = CATEGORY.home
+            break
+          case '交通出行':
+            item['icon'] = CATEGORY.transportation
+            break
+          case '休閒娛樂':
+            item['icon'] = CATEGORY.entertainment
+            break
+          case '餐飲食品':
+            item['icon'] = CATEGORY.food
+            break
+          case '其他':
+            item['icon'] = CATEGORY.other
+            break
+        }
+        item.date = moment(item.date).format('YYYY-MM-DD')
+        totalAmount += item['amount']
+      })
+      res.render('index', { expenses, category, totalAmount })
+    })
     .catch(error => console.error(error))
 })
 

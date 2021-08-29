@@ -1,8 +1,9 @@
 <div>
-  <form action="">
+  <form action="./expenses/category">
     <div class="form-gr">
-      <label for="category-select"></label>
-      <select class="form-control" name="category-select" id="category-select">
+      <label for="category"></label>
+      <select class="form-control" name="category" id="category">
+        <option value="全部">全部</option>
         <option value="家居物業">家居物業</option>
         <option value="交通出行">交通出行</option>
         <option value="休閒娛樂">休閒娛樂</option>
@@ -10,11 +11,15 @@
         <option value="其他">其他</option>
       </select>
     </div>
+    <div>
+      <button type="submit">搜尋</button>
+    </div>
   </form>
 </div>
 
 <div>
   <h2>總金額：</h2>
+  <h1>{{ totalAmount }}元</h1>
 </div>
 
 
