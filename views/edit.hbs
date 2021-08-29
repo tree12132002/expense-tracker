@@ -1,52 +1,52 @@
 <div class="container">
-  <div class="row">
-    <div class="d-flex">
-      <small>*必填欄位</small>
-      <h2 class="mx-auto">請修改你的支出</h2>
-    </div>
-    <form action="/expenses/{{ expense._id }}?_method=PUT" method="POST">
-      <div class="input-group flex-nowrap">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="addon-wrapping">名稱*</span>
-        </div>
-        <input type="text" class="form-control" placeholder="" aria-label="name" aria-describedby="addon-wrapping"
-          value="{{ expense.name }}" name="name" required>
-      </div>
-
-      <div class="input-group flex-nowrap">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="addon-wrapping">日期*</span>
-        </div>
-        <input type="date" class="form-control" placeholder="" aria-label="date" aria-describedby="addon-wrapping"
-          value="{{ expense.date }}" name="date" required>
-      </div>
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">類別*</label>
-        </div>
-        <select class="custom-select" id="inputGroupSelect01" value="{{ expense.category }}" name="category" required>
-          <option selected>Select</option>
-          <option value="餐飲食品">餐飲食品</option>
-          <option value="交通出行">交通出行</option>
-          <option value="休閒娛樂">休閒娛樂</option>
-          <option value="家居物業">家居物業</option>
-          <option value="其他">其他</option>
-        </select>
-      </div>
-
-      <div class="input-group flex-nowrap">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="addon-wrapping">金額*</span>
-        </div>
-        <input type="text" class="form-control" placeholder="" aria-label="amount" aria-describedby="addon-wrapping"
-          value="{{ expense.amount }}" name="amount" required>
-      </div>
-
-      <div>
-        <button class="btn btn-primary" type="submit">送出</button>
-      </div>
-    </form>
-
+  <div class="mt-4">
+    <small class="text-start mt-2 mr-5">*必填欄位</small>
   </div>
+  <div>
+    <p class="text-center mx-auto">請修改你的支出</p>
+  </div>
+  <form action="/expenses/{{ expense._id }}?_method=PUT" method="POST">
+    <div class="input-group flex-nowrap mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="addon-wrapping">名稱*</span>
+      </div>
+      <input type="text" class="form-control" placeholder="" aria-label="name" aria-describedby="addon-wrapping"
+        value="{{ expense.name }}" name="name" required>
+    </div>
+
+    <div class="input-group flex-nowrap mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="addon-wrapping">日期*</span>
+      </div>
+      <input type="date" class="form-control" placeholder="" aria-label="date" aria-describedby="addon-wrapping"
+        value="{{ expense.date }}" name="date" required>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">類別*</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01" value="{{ expense.category }}" name="category" required>
+        <option selected>Select</option>
+        <option value="餐飲食品">餐飲食品</option>
+        <option value="交通出行">交通出行</option>
+        <option value="休閒娛樂">休閒娛樂</option>
+        <option value="家居物業">家居物業</option>
+        <option value="其他">其他</option>
+      </select>
+    </div>
+
+    <div class="input-group flex-nowrap">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="addon-wrapping">金額*</span>
+      </div>
+      <input type="text" class="form-control" placeholder="" aria-label="amount" aria-describedby="addon-wrapping"
+        value="{{ expense.amount }}" name="amount" required>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-warning mt-4" style="width: 300px;" type="submit">送出</button>
+    </div>
+  </form>
+
 </div>
