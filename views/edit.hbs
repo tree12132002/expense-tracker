@@ -4,7 +4,7 @@
       <small>*必填欄位</small>
       <h2 class="mx-auto">請修改你的支出</h2>
     </div>
-    <form action="/expenses/{{ expense._id }}/edit" method="POST">
+    <form action="/expenses/{{ expense._id }}?_method=PUT" method="POST">
       <div class="input-group flex-nowrap">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">名稱*</span>

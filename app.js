@@ -4,6 +4,7 @@ const Expense = require('./models/expense')
 const bodyParser = require('body-parser')
 const CATEGORY = require('./models/CATEGORY')
 const moment = require('moment')
+const methodOverride = require('method-override')
 
 const app = express()
 
@@ -11,6 +12,7 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 // mongoose
 const mongoose = require('mongoose')
@@ -77,7 +79,7 @@ app.get('/expenses/:id/edit', (req, res) => {
     .catch(error => console.error(error))
 })
 
-app.post('/expenses/:id/edit', (req, res) => {
+app.put('/expenses/:id', (req, res) => {
   const id = req.params.id
   const { name, date, category, amount } = req.body
   return Expense.findById(id)
@@ -93,7 +95,7 @@ app.post('/expenses/:id/edit', (req, res) => {
 })
 
 // delete record
-app.post('/expenses/:id/delete', (req, res) => {
+app.delete('/expenses/:id', (req, res) => {
   const id = req.params.id
   return Expense.findById(id)
     .then(expense => expense.remove())
