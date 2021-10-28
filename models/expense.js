@@ -6,19 +6,19 @@ const expenseSchema = new Schema({
   },
   name: {
     type: String,
-    require: true
+    required: true
   },
   date: {
     type: Date,
-    require: true
+    required: true
   },
   amount: {
     type: Number,
-    require: true
+    required: true
   },
   category: {
     type: String,
-    require: true
+    required: true
   }
 })
 
