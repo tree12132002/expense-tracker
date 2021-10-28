@@ -1,1 +1,22 @@
-<h2>Login</h2>
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mt-3 mb-5">家庭記帳本</h1>
+      <form action="/users/login" method="POST">
+        <div class="form-group">
+          <label for="email">帳號</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="password">密碼</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">登入</button>
+      </form>
+      <hr>
+      <p class="lead mt-4 d-flex justify-content-center">
+        <a href="/users/register" class="btn btn-success btn-block col-5">建立新帳號</a>
+      </p>
+    </div>
+  </div>
+</div>
