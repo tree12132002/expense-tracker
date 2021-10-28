@@ -15,7 +15,14 @@
 <body>
   <header>
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand p-2" href="/">家庭記帳本</a>
+      <a class="navbar-brand p-2" href="/">
+      {{#if isAuthenticated}} {{ user.name }}的 {{/if}}
+      家庭記帳本</a>
+      {{#if isAuthenticated}}
+        <a href="/users/logout" class="btn btn-outline-dark">登出</a>
+      {{else}}
+        <a href="/users/login" class="btn btn-outline-dark">登入</a>      
+      {{/if}}
     </nav>
   </header>
   <main>
