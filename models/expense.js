@@ -1,9 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const expenseSchema = new Schema({
-  id: {
-    type: Number
-  },
   name: {
     type: String,
     required: true
@@ -16,8 +13,16 @@ const expenseSchema = new Schema({
     type: Number,
     required: true
   },
-  category: {
-    type: String,
+  categoryId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+    index: true,
+    required: true
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
     required: true
   }
 })
