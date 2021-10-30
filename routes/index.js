@@ -4,11 +4,14 @@ const home = require('./modules/home')
 const expenses = require('./modules/expenses')
 const category = require('./modules/category')
 const users = require('./modules/users')
+const auth = require('./modules/auth')
+
 const { authenticator } = require('../middleware/auth')
 
 router.use('/expenses', authenticator, expenses)
 router.use('/category', authenticator, category)
 router.use('/users', users)
+router.use('/auth', auth)
 router.use('/', authenticator, home)
 
 module.exports = router
