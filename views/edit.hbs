@@ -26,13 +26,13 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">類別*</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect01" value="{{ expense.category }}" name="category" required>
+      <select class="custom-select" id="inputGroupSelect01" name="category" required>
         <option value="" disabled selected hidden>Select</option>
-        <option value="餐飲食品">餐飲食品</option>
-        <option value="交通出行">交通出行</option>
-        <option value="休閒娛樂">休閒娛樂</option>
-        <option value="家居物業">家居物業</option>
-        <option value="其他">其他</option>
+        <option value="餐飲食品" {{#ifeq expense.categoryId.name "餐飲食品" }}selected{{/ifeq}}>餐飲食品</option>
+        <option value="交通出行" {{#ifeq expense.categoryId.name "交通出行" }}selected{{/ifeq}}>交通出行</option>
+        <option value="休閒娛樂" {{#ifeq expense.categoryId.name "休閒娛樂" }}selected{{/ifeq}}>休閒娛樂</option>
+        <option value="家居物業" {{#ifeq expense.categoryId.name "家居物業" }}selected{{/ifeq}}>家居物業</option>
+        <option value="其他" {{#ifeq expense.categoryId.name "其他" }}selected{{/ifeq}}>其他</option>
       </select>
     </div>
 

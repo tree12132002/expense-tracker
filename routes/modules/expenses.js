@@ -3,6 +3,7 @@ const router = express.Router()
 const Expense = require('../../models/expense')
 const Category = require('../../models/category')
 const CATEGORY = require('../../config/CATEGORY')
+const moment = require('moment')
 
 // enter create page
 router.get('/new', (req, res) => {
@@ -54,8 +55,12 @@ router.get('/:id/edit', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
   return Expense.findOne({ _id, userId })
+    .populate('categoryId')
     .lean()
-    .then((expense) => res.render('edit', { expense }))
+    .then(expense => {
+      expense.date = moment(expense.date).format('YYYY-MM-DD')
+      res.render('edit', { expense })
+    })
     .catch(error => console.error(error))
 })
 
