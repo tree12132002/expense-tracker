@@ -1,0 +1,39 @@
+{
+  "results": [
+    {
+      "name": "午餐",
+      "date": "2019-04-23",
+      "amount": 80,
+      "category": "餐飲食品",
+      "user" : "root"
+    },
+    {
+      "name": "晚餐",
+      "date": "2019-04-23",
+      "amount": 100,
+      "category": "餐飲食品",
+      "user": "root"
+    },
+    {
+      "name": "捷運",
+      "date": "2019-04-23",
+      "amount": 1500,
+      "category": "交通出行",
+      "user": "root"
+    },
+    {
+      "name": "電影：猛毒２",
+      "date": "2021-10-13",
+      "amount": 220,
+      "category": "休閒娛樂",
+      "user": "root"
+    },
+    {
+      "name": "租金",
+      "date": "2019-04-01",
+      "amount": 85000,
+      "category": "家居物業",
+      "user": "root"
+    }
+  ]
+}
