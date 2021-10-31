@@ -28,7 +28,7 @@ db.once('open', () => {
           password: hash
         })
         const userId = user._id
-        for (let expenseList of expenseLists) {
+        for (const expenseList of expenseLists) {
           const category = await Category.findOne({ name: expenseList.category }).lean()
           const categoryId = category._id
           await Expense.create({

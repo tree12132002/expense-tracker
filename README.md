@@ -1,11 +1,12 @@
-# Expense-tracker 1.0
+# Expense-tracker 2.0
 * This project provides user with functions to create, read, update, and delete expenditure records.
 ## Feature
+* The user can create an account(with email or Facebook) to use the app.
 * The user can see the following information about the expenditure records on the home page: name, category icon, date, and amount.
 * The user can click the `新增支出` button to create a new expenditure record.
 * The user can click the `修改` button to edit information about the expenditure record.
 * The user can click the `刪除 ` button to delete the expenditure record.
-* The user can select the `category` to show all expenditure records of this category.
+* The user can select the `類別` to show all expenditure records of this category.
 ## How to use it 
 1. Download with Terminal：
     ```
@@ -28,20 +29,24 @@
     ```
     npm run dev
     ```
-5. When Terminal show `App is running on http://localhost:3000`, you can use any browser and type http://localhost:3000 to enter the website.
+5. When Terminal show Express is listening on localhost:3000, you can use any browser and type http://localhost:3000 to enter the website.
 6. End the server
    ```
    ctrl + c
    ```
-## Packages and versions
-* npm： v7.20.3
-* express: v4.17.1
-* express handlebars: v5.3.3
-* nodemon: v2.0.12
-* mongoose: v6.0.1
-* jquery: v3.5.1
-* popper: v1.16.1
-* bootstrap: v4.6.0
-* font-awesome: v5.15.4
-* method-override: v3.0.0
-* moment: v2.29.1
+## Default users
+Run `npm run seed`to create two default users.
+The user can use the information of default users to login the website.
+* email: user1@example.com password: 12345678
+## Environment Variable
+Rename the file `.env.example` to `.env` so that you can run the app successfully.
+Or you can create a file named `.env` and type the following content inside.
+```
+FACEBOOK_ID=SKIP
+FACEBOOK_SECRET=SKIP
+FACEBOOK_CALLBACK=http://localhost:3000/auth/facebook/callback
+SESSION_SECRET=ThisIsMySecret
+MONGODB_URI=mongodb://localhost/restaurant-list
+PORT=3000`
+
+```

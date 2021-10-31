@@ -54,7 +54,7 @@ router.post('/register', (req, res) => {
         confirmPassword
       })
     }
-      // 如果還沒註冊：寫入資料庫
+    // 如果還沒註冊：寫入資料庫
     return bcrypt
       .genSalt(10)
       .then(salt => bcrypt.hash(password, salt))
@@ -69,7 +69,7 @@ router.post('/register', (req, res) => {
 })
 
 // logout function
-router.get('/logout', (req,res) => {
+router.get('/logout', (req, res) => {
   req.logout()
   req.flash('success_msg', '你已經成功登出。')
   res.redirect('/users/login')

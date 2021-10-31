@@ -6,8 +6,7 @@ const moment = require('moment')
 // choose category
 router.get('/', (req, res) => {
   const userId = req.user._id
-  let category = req.query.category
-  console.log(category)
+  const category = req.query.category
   if (category === '全部') {
     return res.redirect('/')
   }

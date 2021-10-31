@@ -3,7 +3,6 @@ const router = express.Router()
 const Expense = require('../../models/expense')
 const moment = require('moment')
 
-
 router.get('/', (req, res) => {
   const userId = req.user._id
   Expense.find({ userId })

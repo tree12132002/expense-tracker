@@ -35,7 +35,7 @@ router.get('/new', (req, res) => {
 // create function
 router.post('/', (req, res) => {
   const userId = req.user._id
-  const { name, date, category, amount } = req.body
+  const { name, date, amount } = req.body
   return Category.find()
     .lean()
     .then(categories => {
@@ -68,7 +68,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  const { name, date, category, amount } = req.body
+  const { name, date, amount } = req.body
   let categoryId = ''
   Category.find()
     .lean()
