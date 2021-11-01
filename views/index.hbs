@@ -43,7 +43,7 @@
       <div class="col-5 text-right align-self-center">
         <a class="btn btn-success mr-2" href="./expenses/{{ this._id }}/edit">修改</a>
         <form action="./expenses/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-          <button class="btn btn-danger mr-2" type="submit">刪除</button>
+          <button class="btn btn-danger mr-2" type="submit" onclick="return del()">刪除</button>
         </form>
       </div>
     </div>
